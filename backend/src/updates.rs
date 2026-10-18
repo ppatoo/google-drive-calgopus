@@ -19,7 +19,7 @@ use shared::{State, extensions::ExtensionUpdateInfo};
 /// Drafts are never returned to unauthenticated callers, so an unfinished release cannot
 /// be advertised here either.
 const RELEASES_URL: &str =
-    "https://api.github.com/repos/Caloptreyx/google-drive/releases?per_page=20";
+    "https://api.github.com/repos/ppatoo/google-drive-calgopus/releases?per_page=20";
 
 const CACHE_KEY: &str = "dev.caloptreyx.gdrive::releases";
 const CACHE_TTL_SECONDS: u64 = 60 * 60;
