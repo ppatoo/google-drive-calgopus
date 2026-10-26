@@ -849,7 +849,7 @@ mod push {
         shared::Payload(data): shared::Payload<Payload>,
     ) -> ApiResponseResult {
         let server =
-            match Server::by_user_identifier(&state.database, &user, &data.server_uuid.to_string())
+            match Server::by_user_identifier(&state.database, &permissions, &data.server_uuid.to_string())
                 .await
             {
                 Ok(Some(server)) => server,
@@ -1196,7 +1196,7 @@ mod restore {
         // Ownership and subuser rules stay core's problem, exactly as on push: resolved
         // through `by_user_identifier` rather than re-implemented here.
         let mut server =
-            match Server::by_user_identifier(&state.database, &user, &data.server_uuid.to_string())
+            match Server::by_user_identifier(&state.database, &permissions, &data.server_uuid.to_string())
                 .await
             {
                 Ok(Some(server)) => server,
